@@ -16,10 +16,37 @@ This project combines deep learning and digital image processing (DIP) technique
 │   ├── notebooks/          # Research and development notebooks
 │   └── requirements.txt    # Python dependencies
 ├── frontend/               # React + Vite + TypeScript application
+│   ├── src/
+│   │   ├── components/     # UI and Tool components (Workspace, Settings)
+│   │   ├── i18n/           # Localization (en.json, ar.json)
+│   │   ├── pages/          # Home, Tools, About, Docs, etc.
+│   │   └── utils/          # Central tool configuration (toolConfig.ts)
+│   └── tailwind.config.js  # Custom theme and design system
 ├── FRONTEND_INTEGRATION.md # API documentation for frontend developers
 ├── LICENSE                 # Project license
 └── README.md               # Main project documentation
 ```
+
+## 🛠️ Key Features
+
+### 💻 Frontend (User Experience)
+- **Modular Interface:** Separated components (`ToolWorkspace`, `ToolSettings`, `PredictionResult`) for better code organization.
+- **Global Localization (i18n):** Full support for **English** and **Arabic** (RTL) including dynamic tool parameters.
+- **Premium Design:** Modern UI with **Tailwind CSS** and **Framer Motion** for a smooth, high-fidelity experience.
+- **In-App Documentation:** Integrated detailed API reference and guides for developers and users.
+- **Dynamic Parameter Control:** Adaptive sidebars that update based on selected processing techniques.
+
+### 🧠 Backend (Image Processing & AI)
+- **AI Prediction:** Gender classification using a fine-tuned **EfficientNet-B4** deep learning model.
+- **Advanced DIP Algorithms:** Implementation of Shading Correction, Canny Edge Detection, CLAHE, and Morphological operations.
+- **Arithmetic Operations:** Real-time multi-image averaging and subtraction.
+- **High Performance:** Built with **FastAPI** for low-latency processing and stateless operations.
+
+## 🧰 Technology Stack
+
+- **Frontend:** React, Vite, TypeScript, Tailwind CSS, Framer Motion, i18next.
+- **Backend:** FastAPI, OpenCV, PyTorch, NumPy.
+- **Icons:** Lucide React.
 
 ## 🚀 Getting Started
 
