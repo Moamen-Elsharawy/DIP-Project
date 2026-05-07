@@ -1,0 +1,212 @@
+{
+  "app": {
+    "name": "X-Ray Vision AI",
+    "tagline": "Advanced Digital Image Processing for Medical X-rays"
+  },
+  "nav": {
+    "home": "Home",
+    "tools": "All Tools",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Precision X-Ray Analysis with AI",
+    "subtitle": "Process medical images with advanced DIP algorithms and state-of-the-art deep learning models.",
+    "cta": "Explore Tools",
+    "cta2": "Explore All Tools",
+    "upload": "Drop X-Ray image here"
+  },
+  "tools": {
+    "description": "A comprehensive suite of digital image processing tools and AI models specialized for X-ray analysis.",
+    "prediction": {
+      "title": "Gender Prediction",
+      "desc": "AI-powered gender classification from chest X-rays.",
+      "subject": "Analysis Subject",
+      "result_title": "Prediction Result",
+      "confidence": "Confidence Level",
+      "ready": "Ready for Analysis",
+      "start": "Start AI Prediction"
+    },
+    "average": {
+      "title": "Image Averaging",
+      "desc": "Noise reduction by combining multiple exposures.",
+      "multi_desc": "Select multiple images to average"
+    },
+    "subtract": {
+      "title": "Image Subtraction",
+      "desc": "Highlight differences between two exposures."
+    },
+    "shading": {
+      "title": "Shading Correction",
+      "desc": "Remove uneven illumination patterns."
+    },
+    "mask": {
+      "title": "Image Masking",
+      "desc": "Isolate regions of interest with binary masks."
+    },
+    "normalize": {
+      "title": "Normalization",
+      "desc": "Optimize image intensity range."
+    },
+    "noise": {
+      "title": "Add Noise",
+      "desc": "Inject controlled noise for testing."
+    },
+    "smooth": {
+      "title": "Smoothing",
+      "desc": "Reduce high-frequency noise using filters."
+    },
+    "sharpen": {
+      "title": "Sharpening",
+      "desc": "Enhance edges and fine details."
+    },
+    "contrast": {
+      "title": "Contrast Enhancement",
+      "desc": "Improve visibility with CLAHE or Equalization."
+    },
+    "edges": {
+      "title": "Edge Detection",
+      "desc": "Extract structural boundaries."
+    },
+    "morphology": {
+      "title": "Morphology",
+      "desc": "Shape-based operations like Dilation/Erosion."
+    }
+  },
+  "common": {
+    "upload": "Upload",
+    "processing": "Processing...",
+    "download": "Download",
+    "reset": "Reset",
+    "before": "Before",
+    "after": "After",
+    "settings": "Settings",
+    "apply": "Apply Changes",
+    "apply_again": "Apply Again",
+    "process": "Process Image",
+    "update": "Update Results",
+    "ready_transform": "Click Process to transform",
+    "supported_formats": "PNG, JPG or DICOM supported"
+  },
+  "params": {
+    "noise_type": "Noise Type",
+    "amount": "Amount",
+    "sigma": "Sigma",
+    "method": "Method",
+    "kernel_size": "Kernel Size",
+    "low": "Low Threshold",
+    "high": "High Threshold",
+    "op": "Operation"
+  },
+  "options": {
+    "gaussian": "Gaussian",
+    "salt_and_pepper": "Salt & Pepper",
+    "speckle": "Speckle",
+    "median": "Median",
+    "bilateral": "Bilateral",
+    "clahe": "CLAHE",
+    "equalize": "Equalization",
+    "dilation": "Dilation",
+    "erosion": "Erosion",
+    "opening": "Opening",
+    "closing": "Closing"
+  },
+  "footer": {
+    "support": "Support",
+    "documentation": "Documentation",
+    "api_ref": "API Reference",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "about": "About",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "made_with": "Made with ❤️ for Medical DIP"
+  },
+  "home": {
+    "view_all": "View All Tools",
+    "why_title": "Why X-Ray Vision AI?",
+    "features": {
+      "precision": {
+        "title": "Precision Analysis",
+        "desc": "Our AI models are trained on thousands of clinical X-ray samples."
+      },
+      "privacy": {
+        "title": "Privacy First",
+        "desc": "Images are processed securely and never stored without permission."
+      },
+      "standard": {
+        "title": "Standardized Output",
+        "desc": "Export processed images in high-quality medical formats."
+      }
+    }
+  },
+  "about": {
+    "docs_content": "Detailed guides on medical image processing algorithms, including image averaging, subtraction, and advanced morphology. Learn how to optimize your X-ray analysis workflow using our AI models.",
+    "privacy_content": "Your privacy is our priority. We process medical images using secure, encrypted channels. No patient data or images are stored on our servers without explicit consent. All processing is done in real-time.",
+    "terms_content": "X-Ray Vision AI is provided for educational and research purposes. While our AI models are highly accurate, they should be used as assistive tools and not as a replacement for professional medical diagnosis.",
+    "getting_started": "Getting Started",
+    "algo_details": "Algorithm Details",
+    "data_protection": "Data Protection",
+    "usage_terms": "Usage Terms",
+    "disclaimer": "Disclaimer",
+    "how_we_use": "How we use your data",
+    "how_we_use_desc": "We only use the uploaded images for processing and immediate feedback. We do not sell, share, or analyze your data for any other purposes. Your session data is cleared as soon as you close the browser.",
+    "disclaimer_desc": "The information provided by X-Ray Vision AI is for informational purposes only. The user assumes all responsibility for the interpretation and use of any analysis provided by the application.",
+    "endpoints": "Endpoints",
+    "auth": "Authentication"
+  },
+  "api": {
+    "subtitle": "Integrate X-Ray Vision AI capabilities into your own applications using our high-performance REST API.",
+    "cat_ai": "AI Prediction",
+    "cat_arithmetic": "Arithmetic Operations",
+    "cat_enhancement": "Image Enhancement",
+    "predict_desc": "AI Gender Prediction using EfficientNet-B4",
+    "average_desc": "Denoising via averaging multiple frames",
+    "subtract_desc": "Subtract img2 from img1",
+    "shading_desc": "Divide original by shading pattern",
+    "mask_desc": "Apply binary mask to image",
+    "normalize_desc": "Full-scale intensity normalization",
+    "noise_desc": "Inject synthetic noise",
+    "smooth_desc": "Apply blurring filters",
+    "sharpen_desc": "Unsharp masking for detail enhancement",
+    "contrast_desc": "CLAHE or Histogram Equalization",
+    "edges_desc": "Canny edge detection",
+    "morphology_desc": "Dilation, Erosion, Opening, Closing",
+    "input_params": "Input Parameters",
+    "response_body": "Response Body",
+    "notes_title": "Important Notes",
+    "note_1": "Use multipart/form-data for all file uploads.",
+    "note_2": "Images are returned as binary blobs. Set your response type to blob in your client.",
+    "note_3": "All processing is stateless. We do not store any images after the response is sent."
+  },
+  "contact": {
+    "subtitle": "Have questions about our medical imaging tools? Get in touch with our team of specialists.",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "address": "Medical DIP Center, Cairo, Egypt",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "email_addr": "Email Address",
+    "message": "Message",
+    "placeholder_name": "John",
+    "placeholder_last": "Doe",
+    "placeholder_email": "john@example.com",
+    "placeholder_msg": "How can we help you?",
+    "send": "Send Message"
+  },
+  "docs": {
+    "arithmetic": "Arithmetic & Multi-Image",
+    "enhancement": "DIP Enhancement Techniques",
+    "average_detail": "Combines multiple images of the same subject to cancel out random electronic noise.",
+    "subtract_detail": "Highlights dynamic changes by subtracting a reference frame from the current exposure.",
+    "shading_detail": "Corrects sensor non-uniformity by dividing the raw image by a reference flat-field pattern.",
+    "mask_detail": "Uses binary masks to isolate anatomical structures of interest.",
+    "normalize_detail": "Rescales intensity values to cover the full [0, 255] range, maximizing visual dynamic range in underexposed X-rays.",
+    "smooth_detail": "Employs Gaussian, Median, or Bilateral filters to suppress high-frequency noise while preserving structural edges.",
+    "sharpen_detail": "Utilizes unsharp masking to amplify high-frequency components, making fine anatomical details more visible.",
+    "contrast_detail": "Advanced Contrast Limited Adaptive Histogram Equalization (CLAHE) for localized enhancement without artifacts.",
+    "edges_detail": "Uses Canny algorithm to identify structural boundaries, useful for automated feature extraction.",
+    "morphology_detail": "Applies Dilation and Erosion to remove small artifacts or bridge structural gaps in segmentations."
+  }
+}

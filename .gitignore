@@ -85,3 +85,9 @@ Thumbs.db
 # *.pt
 # *.onnx
 # *.pb
+
+# Frontend specific
+node_modules/
+frontend/dist/
+frontend/build/
+.eslintcache
