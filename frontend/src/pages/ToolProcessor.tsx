@@ -26,15 +26,24 @@ const ToolProcessor = () => {
   );
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
-    setFiles(acceptedFiles);
+    if (config?.type === 'process_multi' || config?.type === 'process_pair') {
+      setFiles(prev => {
+        const newFiles = [...prev, ...acceptedFiles];
+        return config.type === 'process_pair' ? newFiles.slice(0, 2) : newFiles;
+      });
+    } else {
+      setFiles(acceptedFiles);
+    }
     setResult(null);
     setPrediction(null);
-  }, []);
+  }, [config]);
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+  const { getRootProps, getInputProps, isDragActive, open } = useDropzone({
     onDrop,
-    multiple: config?.type === 'process_multi',
-    accept: { 'image/*': [] }
+    multiple: config?.type === 'process_multi' || config?.type === 'process_pair',
+    accept: { 'image/*': [] },
+    noClick: files.length > 0, // Disable click to upload on the whole container once we have files
+    noKeyboard: true
   });
 
   const handleProcess = async () => {
@@ -110,6 +119,7 @@ const ToolProcessor = () => {
               getRootProps={getRootProps}
               getInputProps={getInputProps}
               isDragActive={isDragActive}
+              onAddClick={open}
               processing={processing}
               result={result}
               prediction={prediction}

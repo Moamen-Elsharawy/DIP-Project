@@ -96,7 +96,14 @@
     "kernel_size": "Kernel Size",
     "low": "Low Threshold",
     "high": "High Threshold",
-    "op": "Operation"
+    "op": "Operation",
+    "img1": "Base Image",
+    "img2": "Subtraction Image",
+    "original": "Original Image",
+    "shading": "Shading Pattern",
+    "mask": "Binary Mask",
+    "file": "X-Ray Image",
+    "files": "Image Set"
   },
   "options": {
     "gaussian": "Gaussian",
