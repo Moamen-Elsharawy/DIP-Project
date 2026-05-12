@@ -10,10 +10,10 @@ app = FastAPI(title="X-ray Image Processing & Prediction API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=["*"], # anyone can access the API, should be restricted in production(e.g., ["http://localhost:3000", "http://[IP_ADDRESS]", "https://your-production-site.com"])
+    allow_credentials=True, # allow cookies and auth headers to be sent
+    allow_methods=["*"], # allow any HTTP method (POST, GET, etc.)
+    allow_headers=["*"], # allow any headers (Content-Type, Authorization, etc.)
 )
 
 @app.get("/")
@@ -21,15 +21,15 @@ async def root():
     return {"message": "X-ray Image Processing API is running"}
 
 @app.post("/predict")
-async def predict_gender(file: UploadFile = File(...)):
-    if not file.content_type.startswith("image/"):
-        raise HTTPException(status_code=400, detail="File uploaded is not an image.")
+async def predict_gender(file: UploadFile = File(...)): # The '...' means the file is required in the request, File() is a function that returns a File object which is a subclass of UploadFile
+    if not file.content_type.startswith("image/"): # file.content_type returns the MIME type of the file, e.g., "image/jpeg", startswith() checks if the MIME type starts with "image/"
+        raise HTTPException(status_code=400, detail="File uploaded is not an image.") # 400 = Bad Request, 500 = Internal Server Error, 404 = Not Found, 200 = OK, etc.
     
     try:
-        image_bytes = await file.read()
+        image_bytes = await file.read() # file.read() reads the content of the file
         
-        classifier = get_classifier()
-        prediction = classifier.predict(image_bytes)
+        classifier = get_classifier() # get_classifier() returns the classifier object, if it's already loaded then return it, else load it first and then return it
+        prediction = classifier.predict(image_bytes) # predict() returns the prediction, it's a dictionary with keys "gender" and "confidence"
         
         return prediction
     except Exception as e:
