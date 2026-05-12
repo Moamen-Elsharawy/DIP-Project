@@ -11,7 +11,6 @@ class XrayGenderClassifier:
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         
         if model_path is None:
-            # Construct path relative to this file: ../models/XrayGenderPrediction.pth
             current_dir = os.path.dirname(os.path.abspath(__file__))
             model_path = os.path.join(current_dir, '..', 'models', 'XrayGenderPrediction.pth')
             

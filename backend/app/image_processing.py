@@ -29,7 +29,9 @@ def subtract_images(img1: np.ndarray, img2: np.ndarray) -> np.ndarray:
         img2 = cv2.resize(img2, (img1.shape[1], img1.shape[0]))
     
     diff = cv2.absdiff(img1, img2)
-    return diff
+
+    enhanced_diff = cv2.normalize(diff, None, 0, 255, cv2.NORM_MINMAX)
+    return enhanced_diff
 
 def correct_shading(img: np.ndarray, shading: np.ndarray) -> np.ndarray:
     if img.shape != shading.shape:
@@ -76,11 +78,9 @@ def add_noise(img: np.ndarray, noise_type: str = "gaussian", amount: float = 0.0
     
     elif noise_type == "salt_and_pepper":
         noisy = np.copy(img)
-        # Salt
         num_salt = np.ceil(amount * img.size * 0.5)
         coords = [np.random.randint(0, i, int(num_salt)) for i in img.shape]
         noisy[tuple(coords)] = 255
-        # Pepper
         num_pepper = np.ceil(amount * img.size * 0.5)
         coords = [np.random.randint(0, i, int(num_pepper)) for i in img.shape]
         noisy[tuple(coords)] = 0
