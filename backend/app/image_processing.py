@@ -66,7 +66,9 @@ def subtract_images(img1: np.ndarray, img2: np.ndarray) -> np.ndarray:
         img2 = cv2.resize(img2, (img1.shape[1], img1.shape[0]))
     
     diff = cv2.absdiff(img1, img2) # cv2.absdiff() is used to find the absolute difference between two images (all images should be the same size before subtraction to avoid errors)
-    return diff
+
+    enhanced_diff = cv2.normalize(diff, None, 0, 255, cv2.NORM_MINMAX)
+    return enhanced_diff
 
 def correct_shading(img: np.ndarray, shading: np.ndarray) -> np.ndarray:
     if img.shape != shading.shape:
