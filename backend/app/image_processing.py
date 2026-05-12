@@ -67,7 +67,7 @@ def subtract_images(img1: np.ndarray, img2: np.ndarray) -> np.ndarray:
     
     diff = cv2.absdiff(img1, img2) # cv2.absdiff() is used to find the absolute difference between two images (all images should be the same size before subtraction to avoid errors)
 
-    enhanced_diff = cv2.normalize(diff, None, 0, 255, cv2.NORM_MINMAX)
+    enhanced_diff = cv2.normalize(diff, None, 0, 255, cv2.NORM_MINMAX)# Normalizes the image to 0-255 range (contrast enhancement)
     return enhanced_diff
 
 def correct_shading(img: np.ndarray, shading: np.ndarray) -> np.ndarray:
@@ -110,6 +110,7 @@ def mask_image(img: np.ndarray, mask: np.ndarray) -> np.ndarray:
 
 def normalize_image(img: np.ndarray) -> np.ndarray:
     '''
+        (Stretching)
         After mathematical operations on the image (like shading correction, etc), 
         the image pixels will not be in the range of 0-255 may be greater or smaller or in specific range, 
         so we need to normalize it to 0-255 range to be displayed correctly as an image
@@ -215,6 +216,7 @@ def smooth_image(img: np.ndarray, method: str = "gaussian", kernel_size: int = 5
     if method == "gaussian":
         return cv2.GaussianBlur(img, (kernel_size, kernel_size), 0)
         # G(x,y) = sum (w(i,j)*f(x+i,y+j))
+        # Average Filter:
         '''
             |w(-1,-1) w(0,-1) w(1,-1)|        | 1  2  1 |
             |w(-1, 0) w(0, 0) w(1, 0)|   ->   | 2  4  2 |
@@ -236,9 +238,9 @@ def smooth_image(img: np.ndarray, method: str = "gaussian", kernel_size: int = 5
         # it is used to remove salt and pepper noise
         # it is also used to preserve edges (unlike gaussian filter that blurs the edges)
         '''
-            |1 1 1|
-            |1 1 1| -> |1 1 1 2 2 2 3 3 3| sorted -> 2
-            |1 1 1|
+            |1 2 3|
+            |4 5 6| -> |1 2 3 4 5 6 7 8 9| sorted -> 5
+            |7 8 9|
         '''
     elif method == "bilateral":
         return cv2.bilateralFilter(img, 9, 75, 75) # (image, diameter of pixel neighborhood, sigma value for pixel color, sigma value for pixel space)
@@ -262,7 +264,7 @@ def smooth_image(img: np.ndarray, method: str = "gaussian", kernel_size: int = 5
 
 def sharpen_image(img: np.ndarray) -> np.ndarray:
     '''
-        Unsharp Masking:
+        Highboost Filtering (if K > 1) and Unsharp Masking (if K = 1):
             1) Create a smoothed/blurred copy of the original image
             2) Subtract the smoothed copy from the original image (this creates a "mask" of the fine details/edges)
             3) Add the mask back to the original image (scaled by a factor > 1) to enhance the edges
@@ -305,9 +307,9 @@ def enhance_contrast(img: np.ndarray, method: str = "clahe") -> np.ndarray:
         range so that the intensities can be more evenly distributed.
         CLAHE: Contrast Limited Adaptive Histogram Equalization
 
-        Histogram Equalization: is using cumulative distribution function (CDF) to map the pixel values to a new range. (Globally)
+        Histogram Equalization (Redistribution of intensity values): is using cumulative distribution function (CDF) to map the pixel values to a new range. (Globally)
         
-        CLAHE: Rather than looking at the whole image, it applies histogram 
+        CLAHE (Contrast Limited Adaptive Histogram Equalization): (Local histogram equalization) Rather than looking at the whole image, it applies histogram 
         equalization to small regions of the image called tiles. 
         Then it interpolates the results to produce a smooth, artifact-free result. (Locally)
              tileGridSize: The size of the grid (window size) that is used to divide the image into smaller regions. 
